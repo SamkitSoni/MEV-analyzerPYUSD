@@ -20,10 +20,10 @@ const SandwichChart = ({ data }) => {
             {
                 label: 'Number of Sandwich Attacks',
                 data: data.map((item) => item.attack_count), // Y-axis values
-                borderColor: 'rgba(75, 192, 192, 1)',
+                borderColor: '#053F5C',
                 backgroundColor: 'rgba(75, 192, 192, 0.2)',
                 tension: 0.4, // Smooth curve
-                pointRadius: 5, // Size of data points
+                pointRadius: 4, // Size of data points
             },
         ],
     };

@@ -30,9 +30,9 @@ const CSVUploader = ({ onDataParsed }) => {
     }, [onDataParsed]);
 
     return (
-        <div className="p-4 border rounded-md shadow-md">
-            <p className="text-sm font-medium text-gray-700">
-                Automatically loading data from <strong>suspiciousTxs.csv</strong>
+        <div className="p-4 rounded-md">
+            <p className="text-m font-medium text-gray-700">
+                Loading data from <strong>suspiciousTxs.csv</strong>
             </p>
         </div>
     );

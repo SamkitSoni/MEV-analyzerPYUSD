@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from 'react';
+import { motion } from "framer-motion";
 import CSVUploader from '@/components/CSVUploader';
 import SandwichChart from '@/components/SandwichChart';
 
@@ -38,15 +39,31 @@ export default function Dashboard() {
     };
 
     return (
-        <div className="min-h-screen bg-gray-100 p-6">
-            <h1 className="text-2xl font-bold text-center mb-6">Sandwich Attack Dashboard</h1>
-            <div className="max-w-4xl mx-auto space-y-6">
-                {/* CSVUploader automatically loads suspiciousTxs.csv */}
-                <CSVUploader onDataParsed={handleDataParsed} />
-
-                {/* Render the SandwichChart if data is available */}
-                {sandwichData.length > 0 && <SandwichChart data={sandwichData} />}
-            </div>
-        </div>
+      <div className="min-h-screen bg-amber-400 p-6">
+      <h1 className="text-8xl font-bold text-center mb-5 text-black" style={{ fontFamily: '"Bebas Neue", sans-serif' }}>
+          Sandwich Attack Dashboard
+      </h1>
+  
+      <motion.div
+          className="max-w-4xl mx-auto space-y-6 text-center bg-amber-500 text-4xl border-4 border-black rounded-2xl shadow-lg p-4"
+          style={{ fontFamily: '"Nunito", sans-serif' }}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+      >
+          {/* CSVUploader automatically loads suspiciousTxs.csv */}
+          <CSVUploader onDataParsed={handleDataParsed} />
+      </motion.div>
+  
+      <motion.div
+          className="max-w-4xl mx-auto space-y-8 bg-amber-200 border-4 border-black rounded-2xl shadow-lg p-6 mt-6"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+      >
+          {/* Render the SandwichChart if data is available */}
+          {sandwichData.length > 0 && <SandwichChart data={sandwichData} />}
+      </motion.div>
+  </div>
     );
 }
