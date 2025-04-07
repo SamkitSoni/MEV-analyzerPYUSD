@@ -107,9 +107,15 @@ export default function LandingPage() {
         </div>
       </button>
       ) : (
-        <p className="text-green-600 font-medium text-center">
-          Wallet Connected: {walletAddress}
-        </p>
+        <div className="flex justify-center mt-4">
+      <div className="bg-black border border-green-400 text-black-700 px-4 py-2 rounded-2xl shadow-md max-w-fit">
+    <p
+      className="text-xs font-light text-center"
+    >
+      Wallet Connected: {walletAddress}
+    </p>
+  </div>
+</div>
       )}
     </div>
   );
