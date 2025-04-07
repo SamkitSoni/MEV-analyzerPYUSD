@@ -1,6 +1,6 @@
-const { fetchPYUSDTransfers } = require('../queries/fetchPyusdTxs');
+import { fetchPYUSDTransfers } from '../queries/fetchPyusdTxs';
 
-async function detectSandwiches() {
+export async function detectSandwiches() {
     try {
     // Fetch transaction data
         const transactions = await fetchPYUSDTransfers();
@@ -50,5 +50,3 @@ async function detectSandwiches() {
     throw error;
     }
 }
-
-module.exports = { detectSandwiches };

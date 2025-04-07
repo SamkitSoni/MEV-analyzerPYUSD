@@ -1,7 +1,7 @@
-const { fetchPYUSDTransfers } = require('@/queries/fetchPyusdTxs');
-const { detectSandwiches } = require('@/analysis/detectSandwiches');
+import { fetchPYUSDTransfers } from '@/queries/fetchPyusdTxs';
+import { detectSandwiches } from '@/analysis/detectSandwiches';
+import { writeToPath } from 'fast-csv';
 
-const { writeToPath } = require('fast-csv');
 require('dotenv').config();
 
 export default async function sandwitchCSV() {
@@ -14,7 +14,7 @@ export default async function sandwitchCSV() {
     }
 
     // Pass transactions to detectSandwiches
-    const suspiciousTxs = await detectSandwiches(transactions);
+    const suspiciousTxs = await detectSandwiches();
 
     if (!suspiciousTxs || !suspiciousTxs.length) {
       console.log("No sandwich attacks detected.");

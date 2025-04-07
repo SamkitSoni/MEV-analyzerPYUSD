@@ -1,6 +1,5 @@
-const fs = require('fs');
-const path = require('path');
-const { BigQuery } = require('@google-cloud/bigquery');
+import fs from 'fs';
+import { BigQuery } from '@google-cloud/bigquery';
 require('dotenv').config();
 
 const USE_MOCK = process.env.USE_MOCK === 'true';
@@ -10,7 +9,7 @@ const bigquery = new BigQuery({
     keyFilename: process.env.GOOGLE_KEY_FILE,
 });
 
-async function fetchPYUSDTransfers() {
+export async function fetchPYUSDTransfers() {
     if (USE_MOCK) {
         const filePath = "./src/queries/mockData.json";
         const rawData = fs.readFileSync(filePath, 'utf8');
@@ -53,6 +52,4 @@ async function fetchPYUSDTransfers() {
         throw error;
     }
 }
-
-module.exports = { fetchPYUSDTransfers };
 
